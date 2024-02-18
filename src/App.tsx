@@ -78,6 +78,7 @@ function App() {
                         alt={filteredItem.company}
                       />
                       <section className="list__item-content">
+                        <h2 className="sr-only">List item main content</h2>
                         <article>
                           <div className="item-content__details">
                             <div className="details__row details__first-row">
