@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+@import "index";
+$Desaturated-Dark-Cyan: hsl(180, 29%, 50%);
+// ### Neutral
+$Light-Grayish-Cyan-Background: hsl(180, 52%, 96%);
+$Light-Grayish-Cyan-Filter-Tablets: hsl(180, 31%, 95%);
+$Dark-Grayish-Cyan: hsl(180, 8%, 52%);
+$Very-Dark-Grayish-Cyan: hsl(180, 14%, 20%);
+
+body {
+  min-height: 100svh;
+  font-family: "League Spartan", sans-serif;
+  background: $Light-Grayish-Cyan-Background;
+  .bg__img {
+    background: $Desaturated-Dark-Cyan;
+  }
+  .main {
+    padding-inline: 1.375rem;
+    translate: 0 -2.25rem;
+    @media (min-width: 64rem) {
+      padding-inline: 10rem;
+    }
+    &.filter {
+      padding-top: 5rem;
+    }
+    .filter {
+      background: white;
+      margin-bottom: 3.5rem;
+      padding: 1.125rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      .filter__buttons {
+        flex: 1;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+        .filter__chip {
+          display: flex;
+          align-items: flex-start;
+          border-radius: 0.2rem;
+          overflow: hidden;
+          cursor: pointer;
+          .filter__chip-text {
+            padding-inline: 0.5rem;
+            height: 2rem;
+            background: $Light-Grayish-Cyan-Filter-Tablets;
+            display: grid;
+            place-items: center;
+            color: $Desaturated-Dark-Cyan;
+            font-weight: 700;
+          }
+          .filter__chip-close {
+            height: 2rem;
+            width: 2rem;
+            background: url(/public/images/icon-remove.svg) no-repeat,
+              $Desaturated-Dark-Cyan;
+            background-position: center;
+            border: none;
+            &:hover {
+              background: url(/public/images/icon-remove.svg) no-repeat,
+                $Very-Dark-Grayish-Cyan;
+              background-position: center;
+            }
+          }
+        }
+      }
+      .filter__clear {
+        background: transparent;
+        border: none;
+        padding: 1.5rem;
+        font-size: 1rem;
+        font-weight: 700;
+        font-family: inherit;
+        color: $Dark-Grayish-Cyan;
+        &:hover {
+          color: $Desaturated-Dark-Cyan;
+          text-decoration: underline;
+        }
+      }
+    }
+    .list {
+      display: grid;
+      gap: 2.5rem;
+      .list__item {
+        padding-inline: 1rem;
+        background: white;
+        border-radius: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        box-shadow: 0 15px 15px rgba($color: #000000, $alpha: 0.1);
+        @media (min-width: 64rem) {
+          flex-direction: row;
+          padding-inline: 2.5rem;
+          padding-block: 2rem;
+          max-height: 9.5rem;
+          gap: 1.375rem;
+        }
+        &.featured {
+          position: relative;
+          &::before {
+            position: absolute;
+            content: "";
+            background: $Desaturated-Dark-Cyan;
+            width: 4px;
+            height: 100%;
+            left: 0;
+            top: 0;
+            border-top-left-radius: 100vw;
+            border-bottom-left-radius: 100vw;
+          }
+        }
+        .list__img {
+          width: 3rem;
+          height: 3rem;
+          margin-top: -1.5rem;
+          @media (min-width: 64rem) {
+            margin-top: unset;
+            align-self: center;
+            height: 5.5rem;
+            width: 5.5rem;
+          }
+        }
+        .list__item-content {
+          padding-bottom: 1.5rem;
+          flex: 1;
+          @media (min-width: 64rem) {
+            padding-bottom: unset;
+          }
+          article {
+            @media (min-width: 64rem) {
+              display: flex;
+              justify-content: space-between;
+            }
+            .item-content__details {
+              display: grid;
+              gap: 1rem;
+              border-bottom: 1px solid $Dark-Grayish-Cyan;
+              padding-bottom: 1rem;
+              @media (min-width: 64rem) {
+                border: none;
+              }
+              .details__row {
+                display: flex;
+                align-items: center;
+              }
+              .details__first-row {
+                gap: 1.5rem;
+                h2 {
+                  color: $Desaturated-Dark-Cyan;
+                  font-size: 1rem;
+                }
+                div {
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  small {
+                    border-radius: 100vw;
+                    background: $Desaturated-Dark-Cyan;
+                    color: white;
+                    padding: 0.3rem 0.5rem;
+                    &.featured {
+                      background: $Very-Dark-Grayish-Cyan;
+                    }
+                  }
+                }
+              }
+              .details__second-row {
+                font-size: 1rem;
+                cursor: pointer;
+                &:hover {
+                  color: $Desaturated-Dark-Cyan;
+                }
+              }
+              .details__last-row {
+                gap: 1.5rem;
+                ::marker {
+                  color: $Dark-Grayish-Cyan;
+                }
+                li {
+                  list-style: disc;
+                  color: $Dark-Grayish-Cyan;
+                  &:first-of-type {
+                    list-style: none;
+                  }
+                }
+              }
+            }
+            .item-content-filters {
+              display: flex;
+              align-items: center;
+              flex-wrap: wrap;
+              gap: 1rem;
+              padding-top: 1rem;
+              padding-right: 2rem;
+              @media (min-width: 64rem) {
+                padding-top: unset;
+                padding-right: unset;
+              }
+              li {
+                cursor: pointer;
+                padding: 0.5rem;
+                border-radius: 0.3rem;
+                font-weight: 700;
+                color: $Desaturated-Dark-Cyan;
+                background: $Light-Grayish-Cyan-Filter-Tablets;
+                transition: 0.2s ease-in;
+                max-height: 2rem;
+                &:hover {
+                  background-color: $Desaturated-Dark-Cyan;
+                  color: white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
